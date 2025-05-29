@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Convite - Enzo Ferracini Patti</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+   rel="stylesheet"
+   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <style>
+   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+   body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+     url("./cerveja.jpegf") no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+   }
+
+   .card {
+    background: rgba(23, 15, 42, 0.85);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(109, 40, 217, 0.3);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+   }
+
+   .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 35px rgba(76, 29, 149, 0.4);
+   }
+
+   .confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #f0f;
+    opacity: 0;
+    z-index: 50;
+    pointer-events: none;
+   }
+
+   .btn-purple {
+    background: linear-gradient(45deg, #7e22ce, #9333ea);
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.5);
+    transition: all 0.3s ease;
+   }
+
+   .btn-purple:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.7);
+    background: linear-gradient(45deg, #9333ea, #7e22ce);
+   }
+
+   .pulse {
+    animation: pulse 2s infinite;
+   }
+
+   @keyframes pulse {
+    0% {
+     transform: scale(1);
+    }
+    50% {
+     transform: scale(1.05);
+    }
+    100% {
+     transform: scale(1);
+    }
+   }
+
+   .glow-text {
+    text-shadow: 0 0 10px rgba(167, 139, 250, 0.7);
+   }
+
+   .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+   }
+
+   .modal-content {
+    background: rgba(23, 15, 42, 0.95);
+    border: 1px solid rgba(109, 40, 217, 0.5);
+    border-radius: 12px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 400px;
+    backdrop-filter: blur(10px);
+   }
+
+   .input-nome {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(109, 40, 217, 0.5);
+    color: white;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    width: 100%;
+    margin: 1rem 0;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+   }
+
+   .input-nome:focus {
+    outline: none;
+    border-color: #9333ea;
+    box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.3);
+   }
+  </style>
+ </head>
+ <body class="flex items-center justify-center p-4 relative overflow-x-hidden">
+  <!-- Card Principal -->
+  <div
+   class="card animate__animated animate__fadeInUp w-full max-w-2xl rounded-xl overflow-hidden p-8 md:p-10 relative z-10"
+  >
+   <!-- Cabeçalho -->
+   <div class="text-center mb-8">
+    <div class="inline-block mb-4">
+     <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-16 w-16 text-purple-400 mx-auto glow-text"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+     >
+      <path
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       stroke-width="1.5"
+       d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+     </svg>
+    </div>
+    <h1
+     class="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-purple-600 mb-2 glow-text"
+    >
+     Você está convidado!
+    </h1>
+    <p class="text-gray-300 text-sm md:text-base">Para celebrar o</p>
+    <h2 class="text-2xl md:text-3xl font-semibold text-white mt-1">
+     <span
+      class="text-purple-400 hover:text-purple-300 transition-all duration-300 ease-in-out transform hover:scale-105"
+     >
+      18tou
+     </span>
+     do Enzo
+    </h2>
+   </div>
+
+   <!-- Detalhes do Evento -->
+   <div class="space-y-6 mb-10">
+    <div class="flex items-start">
+     <div class="flex-shrink-0 pt-1">
+      <svg
+       xmlns="http://www.w3.org/2000/svg"
+       class="h-6 w-6 text-purple-400"
+       fill="none"
+       viewBox="0 0 24 24"
+       stroke="currentColor"
+      >
+       <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1.8"
+        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+       />
+      </svg>
+     </div>
+     <div class="ml-3">
+      <h3 class="text-sm font-medium text-gray-300">DATA</h3>
+      <p class="text-lg font-semibold text-white">06 de Junho</p>
+     </div>
+    </div>
+
+    <div class="flex items-start">
+     <div class="flex-shrink-0 pt-1">
+      <svg
+       xmlns="http://www.w3.org/2000/svg"
+       class="h-6 w-6 text-purple-400"
+       fill="none"
+       viewBox="0 0 24 24"
+       stroke="currentColor"
+      >
+       <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1.8"
+        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+       />
+      </svg>
+     </div>
+     <div class="ml-3">
+      <h3 class="text-sm font-medium text-gray-300">HORÁRIO</h3>
+      <p class="text-lg font-semibold text-white">20h00</p>
+     </div>
+    </div>
+
+    <div class="flex items-start">
+     <div class="flex-shrink-0 pt-1">
+      <svg
+       xmlns="http://www.w3.org/2000/svg"
+       class="h-6 w-6 text-purple-400"
+       fill="none"
+       viewBox="0 0 24 24"
+       stroke="currentColor"
+      >
+       <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1.8"
+        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+       />
+       <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1.8"
+        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+       />
+      </svg>
+     </div>
+     <div class="ml-3">
+      <h3 class="text-sm font-medium text-gray-300">LOCAL</h3>
+      <p class="text-lg font-semibold text-white">
+       Rua Catuaba 525, Vila Alpina
+      </p>
+      <p class="text-sm text-gray-400 mt-1">São Paulo - SP</p>
+     </div>
+    </div>
+   </div>
+
+   <!-- Confirmação -->
+   <div class="text-center">
+    <button
+     onclick="abrirModal()"
+     class="btn-purple text-white font-bold py-3 px-8 rounded-full text-lg md:text-xl pulse"
+    >
+     Confirmar Presença
+    </button>
+    <p
+     id="resposta"
+     class="text-green-400 font-medium mt-4 hidden animate__animated animate__bounceIn"
+    >
+     Presença confirmada com sucesso! 🎉<br />
+     <span id="nome-convidado" class="text-sm text-gray-300"></span>
+    </p>
+   </div>
+
+   <!-- Rodapé -->
+   <div class="mt-10 text-center text-xs text-gray-500">
+    <p>Espero por você para celebrar essa data especial!</p>
+    <p class="mt-1">Contato: (11) 97883-3101</p>
+   </div>
+  </div>
+
+  <!-- Modal para inserir nome -->
+  <div id="modal" class="modal">
+   <div class="modal-content animate__animated animate__fadeIn">
+    <h3 class="text-xl font-bold text-purple-300 text-center">
+     Confirmar Presença
+    </h3>
+    <p class="text-gray-300 text-center mt-2">
+     Por favor, insira seu nome para confirmar:
+    </p>
+
+    <input
+     type="text"
+     id="nomeInput"
+     class="input-nome"
+     placeholder="Seu nome completo"
+     required
+    />
+
+    <div class="flex justify-center gap-4 mt-4">
+     <button
+      onclick="fecharModal()"
+      class="px-4 py-2 rounded-lg border border-purple-500 text-purple-300 hover:bg-purple-900/50 transition"
+     >
+      Cancelar
+     </button>
+     <button
+      onclick="confirmarPresenca()"
+      class="btn-purple text-white font-semibold px-6 py-2 rounded-lg"
+     >
+      Confirmar
+     </button>
+    </div>
+   </div>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+  <script>
+   // Configuração do Firebase
+   const firebaseConfig = {
+    apiKey: "AIzaSyAcbnAdJmEdV60aaYavhwgQR5s5BZadoZo",
+    authDomain: "enzo-party.firebaseapp.com",
+    databaseURL: "https://enzo-party-default-rtdb.firebaseio.com",
+    projectId: "enzo-party",
+    storageBucket: "enzo-party.firebasestorage.app",
+    messagingSenderId: "750525307011",
+    appId: "1:750525307011:web:aebcdb16422c37ac6723b6",
+    measurementId: "G-7JJ4DDZQ3Y",
+   };
+
+   // Inicializa Firebase
+   try {
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+    console.log("Firebase Realtime Database inicializado com sucesso!");
+   } catch (error) {
+    console.error("Erro ao inicializar Firebase:", error);
+   }
+
+   // Variável para armazenar o nome do convidado
+   let nomeConvidado = "";
+
+   // Funções do modal
+   function abrirModal() {
+    document.getElementById("modal").style.display = "flex";
+    document.getElementById("nomeInput").focus();
+   }
+
+   function fecharModal() {
+    document.getElementById("modal").style.display = "none";
+    document.getElementById("nomeInput").value = "";
+   }
+
+   // Função para criar efeito de confete
+   function createConfetti() {
+    const confetti = document.createElement("div");
+    confetti.className = "confetti";
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.top = -10 + "px";
+    confetti.style.backgroundColor = `hsl(${
+     Math.random() * 60 + 270
+    }, 100%, 70%)`; // Tons de roxo
+    confetti.style.width = Math.random() * 10 + 5 + "px";
+    confetti.style.height = confetti.style.width;
+    document.body.appendChild(confetti);
+
+    const animationDuration = Math.random() * 3 + 2;
+
+    confetti.animate(
+     [
+      { transform: `translate(0, 0) rotate(0deg)`, opacity: 1 },
+      {
+       transform: `translate(${Math.random() * 200 - 100}px, ${
+        window.innerHeight
+       }px) rotate(${Math.random() * 360}deg)`,
+       opacity: 0,
+      },
+     ],
+     {
+      duration: animationDuration * 1000,
+      easing: "cubic-bezier(0.1, 0.8, 0.9, 1)",
+     }
+    );
+
+    setTimeout(() => {
+     confetti.remove();
+    }, animationDuration * 1000);
+   }
+
+   // Função principal para confirmar presença
+   async function confirmarPresenca() {
+    const nomeInput = document.getElementById("nomeInput");
+    const resposta = document.getElementById("resposta");
+    const nomeConvidadoElement = document.getElementById("nome-convidado");
+
+    // Validar nome
+    if (!nomeInput.value.trim()) {
+     nomeInput.style.borderColor = "#ef4444";
+     nomeInput.placeholder = "Por favor, insira seu nome";
+     return;
+    }
+
+    nomeConvidado = nomeInput.value.trim();
+
+    try {
+     const ip = await fetch("https://api.ipify.org?format=json")
+      .then((response) => response.json())
+      .then((data) => data.ip)
+      .catch(() => "Não detectado");
+
+     // Salva dados no Realtime Database
+     await firebase.database().ref("confirmacoes").push({
+      nome: nomeConvidado,
+      data: new Date().toISOString(),
+      ip: ip,
+     });
+
+     // Fecha o modal e mostra confirmação
+     fecharModal();
+
+     // Atualiza mensagem com o nome
+     nomeConvidadoElement.textContent = `Obrigado, ${nomeConvidado}! Te esperamos na festa!`;
+     resposta.classList.remove("hidden");
+
+     // Efeitos de confete
+     for (let i = 0; i < 50; i++) {
+      createConfetti();
+     }
+
+     // Rolagem suave
+     resposta.scrollIntoView({ behavior: "smooth" });
+    } catch (error) {
+     console.error("Erro ao confirmar presença:", error);
+     resposta.textContent =
+      "Ocorreu um erro ao confirmar. Por favor, tente novamente mais tarde.";
+     resposta.classList.remove("hidden");
+     resposta.classList.add("text-red-400");
+    }
+   }
+  </script>
+ </body>
+</html>
