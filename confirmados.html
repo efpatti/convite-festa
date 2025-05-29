@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lista de Confirmados - Enzo Ferracini Patti</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="shortcut icon" href="./logo.png" type="image/x-icon" />
+  <link
+   rel="stylesheet"
+   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <style>
+   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+   body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+     url("./cerveja.jpeg") no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+   }
+
+   .card {
+    background: rgba(23, 15, 42, 0.85);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(109, 40, 217, 0.3);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+   }
+
+   .glow-text {
+    text-shadow: 0 0 10px rgba(167, 139, 250, 0.7);
+   }
+
+   .guest-item {
+    transition: all 0.3s ease;
+    border-left: 3px solid #7e22ce;
+   }
+
+   .guest-item:hover {
+    transform: translateX(5px);
+    background: rgba(109, 40, 217, 0.1);
+   }
+  </style>
+ </head>
+ <body class="flex items-center justify-center p-4">
+  <div class="card w-full max-w-2xl rounded-xl overflow-hidden p-8 md:p-10">
+   <div class="text-center mb-8">
+    <h1 class="text-3xl md:text-4xl font-bold text-purple-400 mb-2 glow-text">
+     Lista de Confirmados
+    </h1>
+    <p class="text-gray-300">Para o 18tou do Enzo</p>
+
+    <div class="mt-6 flex justify-center">
+     <a
+      href="index.html"
+      class="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition"
+     >
+      Voltar ao Convite
+     </a>
+    </div>
+   </div>
+
+   <div id="loading" class="text-center text-purple-300">
+    <p>Carregando lista de confirmados...</p>
+   </div>
+
+   <div id="confirmados-list" class="space-y-3 hidden">
+    <!-- Lista será preenchida pelo JavaScript -->
+   </div>
+
+   <div id="total" class="mt-8 text-center text-purple-300 font-medium hidden">
+    Total de confirmados: <span id="total-count">0</span>
+   </div>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+  <!-- Configuração do Firebase -->
+  <script src="firebase-config.js"></script>
+  <script src="confirmacao.js"></script>
+ </body>
+</html>
